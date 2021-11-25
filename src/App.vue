@@ -35,6 +35,8 @@
   </div>
 </template>
 <script>
+import './assets/scss/stylesheet.scss';
+
 export default {
   name: 'App',
   data() {
