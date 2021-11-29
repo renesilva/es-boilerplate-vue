@@ -1,9 +1,10 @@
 {
   "name": "es-boilerplate-vue",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "author": "Rene Silva",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "export SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
+    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
