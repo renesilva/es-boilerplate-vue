@@ -8,10 +8,8 @@ build:
   before_script:
     - npm install
   script:
-    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js build
-    - mkdir build
-    - mv src/* build/
-    - tar czf build.tar.gz build
+    - npm run build
+    - tar czf build.tar.gz dist
   artifacts:
     paths:
       - build.tar.gz
