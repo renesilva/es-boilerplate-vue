@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import HomePage from './pages/Home.vue';
 import AcercaDePage from './pages/AcercaDe.vue';
+import LoaderComponent from './components/Loader.vue';
 
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -21,6 +22,11 @@ const router = createRouter({
 
 const app = createApp(App);
 
-app.use(router);
+// ***********************************
+// 2. Registro de Componentes Globales
+// ***********************************
+app.component('loader-component', LoaderComponent);
+// ***********************************
 
+app.use(router);
 app.mount('#app');

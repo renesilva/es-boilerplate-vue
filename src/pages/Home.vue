@@ -15,10 +15,12 @@
         <li><a class="dropdown-item" href="#">Another action</a></li>
         <li><a class="dropdown-item" href="#">Something else here</a></li>
       </ul>
+      <loader-component></loader-component>
     </div>
   </div>
 </template>
 <script>
+import LoaderComponent from '@/components/Loader';
 export default {
   name: 'HomePage',
   data() {
@@ -31,6 +33,7 @@ export default {
   watch: {},
   created() {},
   mounted() {},
+  components: { LoaderComponent },
   // Se pueden utilizar estos hooks para el ciclo de vida
   // beforeCreate, created, beforeMount, mounted, beforeUpdate, updated
   // activated, deactivated, beforeUnmount, unmounted
