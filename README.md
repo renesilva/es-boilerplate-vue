@@ -26,6 +26,12 @@ En `main.js` se deben realizar las siguientes tareas según se necesite.
 ### 1. Registro de Rutas para páginas
   ```js
 { path: '/url', component: NombrePaginaPage }
+{ path: '/users/:id', component: User, props: true} // Accesible con props: ['id']
+```
+
+### 2. Registro de Componentes Globales
+  ```js
+app.component('loader-component', LoaderComponent);
 ```
 
 ## Releases

@@ -20,7 +20,6 @@
   </div>
 </template>
 <script>
-import LoaderComponent from '@/components/Loader';
 export default {
   name: 'HomePage',
   data() {
@@ -33,7 +32,7 @@ export default {
   watch: {},
   created() {},
   mounted() {},
-  components: { LoaderComponent },
+  components: {},
   // Se pueden utilizar estos hooks para el ciclo de vida
   // beforeCreate, created, beforeMount, mounted, beforeUpdate, updated
   // activated, deactivated, beforeUnmount, unmounted
