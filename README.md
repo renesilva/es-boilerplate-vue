@@ -34,7 +34,15 @@ En `main.js` se deben realizar las siguientes tareas según se necesite.
 app.component('loader-component', LoaderComponent);
 ```
 
+## Variables de .env  
+
+### VUE_APP_PUBLIC_URL_API
+Base de la API
+
 ## Releases
+
+### 1.1
+- Axios interceptors y utilidades
 
 ### 1.0
 - Vue 3

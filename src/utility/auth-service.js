@@ -1,13 +1,14 @@
 import { createBrowserHistory } from 'history';
+import { storageDelete } from './storage';
 
 const history = createBrowserHistory();
 
 // Obtener el usuario actual
-const getCurrentUser = () => JSON.parse(localStorage.getItem('user') || '{}');
+export const getCurrentUser = () => JSON.parse(localStorage.getItem('user') || '{}');
 
 // Cerrar sesión
-const logout = () => {
-  localStorage.removeItem('user');
+export const logout = () => {
+  storageDelete('user');
   history.push({ pathname: process.env.PUBLIC_URL + '/user/login' });
   window.location.reload();
 };

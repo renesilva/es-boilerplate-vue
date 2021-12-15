@@ -7,7 +7,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 // Importar
 // eslint-disable-next-line no-unused-vars
-// import axiosInterceptor from './utility/axios-token-interceptor';
+import axiosInterceptor from './utility/axios-token-interceptor';
 
 // ***********************************
 // 1. Registro de Rutas para páginas
