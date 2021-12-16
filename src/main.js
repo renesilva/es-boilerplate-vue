@@ -2,8 +2,10 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import HomePage from './pages/Home.vue';
 import AcercaDePage from './pages/AcercaDe.vue';
+import LoginPage from './pages/auth/Login.vue';
 import LoaderComponent from './components/Loader.vue';
 import { createRouter, createWebHistory } from 'vue-router';
+import store from './store/index';
 
 // Importar
 // eslint-disable-next-line no-unused-vars
@@ -15,6 +17,8 @@ import axiosInterceptor from './utility/axios-token-interceptor';
 const routes = [
   { path: '/', component: HomePage },
   { path: '/acerca-de', component: AcercaDePage },
+  // Gestión de usuarios
+  { path: '/login', component: LoginPage },
 ];
 // ***********************************
 
@@ -32,4 +36,5 @@ app.component('loader-component', LoaderComponent);
 // ***********************************
 
 app.use(router);
+app.use(store);
 app.mount('#app');

@@ -20,6 +20,11 @@
               </router-link>
             </li>
           </template>
+          <template v-if="loggedIn">
+            <li class="nav-item">
+              <a class="nav-link" href="#" @click="logout">Cerrar Sesión</a>
+            </li>
+          </template>
         </ul>
       </header>
     </div>
@@ -40,8 +45,20 @@ import './assets/scss/stylesheet.scss';
 export default {
   name: 'App',
   data() {
-    return {
-      navOptions: [
+    return {};
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/');
+    },
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+    navOptions() {
+      let navOptions = [
         {
           route: '/',
           text: 'Inicio',
@@ -50,11 +67,14 @@ export default {
           route: '/acerca-de',
           text: 'Acerca de',
         },
-      ],
-    };
+      ];
+      if (this.loggedIn) {
+        // se pueden agregar opciones extra cuando inicie sesión
+        navOptions = [...navOptions];
+      }
+      return navOptions;
+    },
   },
-  methods: {},
-  computed: {},
   watch: {},
   mounted() {},
   // Se pueden utilizar estos hooks para el ciclo de vida

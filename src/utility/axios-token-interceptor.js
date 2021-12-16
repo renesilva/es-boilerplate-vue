@@ -1,14 +1,14 @@
 import { api } from '@/config/site.config';
 import { createBrowserHistory } from 'history';
-import AuthService from './auth-service';
+import AuthService from '@/services/auth.service';
 
 const history = createBrowserHistory();
 // Request interceptor
 api.interceptors.request.use(
   (config) => {
-    const token = AuthService.getCurrentUser().token;
-    if (token != null) {
-      config.headers.Authorization = `Bearer ${token}`;
+    const user = AuthService.getCurrentUser();
+    if (user != null && user.token != null) {
+      config.headers.Authorization = `Bearer ${user.token}`;
     }
     return config;
   },
@@ -36,7 +36,11 @@ api.interceptors.response.use(
     if (err.response) {
       if (err.response.status === 401) {
         AuthService.logout();
-        history.push({ pathname: process.env.PUBLIC_URL + '/user/login' });
+        const public_url =
+          typeof process.env.PUBLIC_URL !== 'undefined'
+            ? process.env.PUBLIC_URL
+            : process.env.VUE_APP_PUBLIC_URL;
+        history.push({ pathname: public_url + '/user/login' });
         window.location.reload();
       } else if (err.response.status === 405 || err.response.status === 500) {
         // alert('Hubo un error con su pedido.')
