@@ -36,11 +36,15 @@ api.interceptors.response.use(
     if (err.response) {
       if (err.response.status === 401) {
         AuthService.logout();
-        const public_url =
-          typeof process.env.PUBLIC_URL !== 'undefined'
-            ? process.env.PUBLIC_URL
-            : process.env.VUE_APP_PUBLIC_URL;
-        history.push({ pathname: public_url + '/user/login' });
+        let public_url = '';
+        if (typeof process.env.PUBLIC_URL !== 'undefined') {
+          public_url = process.env.PUBLIC_URL;
+        } else {
+          if (typeof process.env.VUE_APP_PUBLIC_URL !== 'undefined') {
+            public_url = process.env.VUE_APP_PUBLIC_URL;
+          }
+        }
+        history.push({ pathname: public_url + '/login' });
         window.location.reload();
       } else if (err.response.status === 405 || err.response.status === 500) {
         // alert('Hubo un error con su pedido.')

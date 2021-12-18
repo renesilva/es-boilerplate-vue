@@ -20,7 +20,6 @@
   </div>
 </template>
 <script>
-import { api } from '@/config/site.config';
 export default {
   name: 'HomePage',
   data() {
@@ -36,11 +35,7 @@ export default {
   },
   watch: {},
   created() {},
-  mounted() {
-    if (this.loggedIn) {
-      api.get('profile/myProfile').then((response) => console.log(response.data));
-    }
-  },
+  mounted() {},
   components: {},
   // Se pueden utilizar estos hooks para el ciclo de vida
   // beforeCreate, created, beforeMount, mounted, beforeUpdate, updated

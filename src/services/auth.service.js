@@ -25,7 +25,7 @@ class AuthService {
   }
 
   register(user) {
-    return api.post('signup', {
+    return api.post('auth/register', {
       username: user.username,
       email: user.email,
       password: user.password,
