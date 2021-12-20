@@ -15,6 +15,13 @@ Para inicializar el programa se debe correr los siguientes pasos:
 3. Correr `npm run build` para construir el proyecto.
 4. Correr `npm run lint` para corregir errores y Lint.
 
+## Conexión con API de E-Commerce
+Para conectar con la API de E-Commerce crear un archivo con el nombre `.env` en el directorio raíz con el siguiente contenido:
+
+`VUE_APP_PUBLIC_URL_API=https://training.melian.me/backend-ecommerce/api/`
+
+Se debe volver a ejecutar el comando `npm run serve` al crear o al hacer algún cambio en el archivo .env.
+
 ## Registro de páginas y componentes Vue
 
 `src/pages` -> Lugar donde se encuentran las páginas. Estas páginas deben estar en .vue. En /examples/ se encuentra el ejemplo de una página vacía.
@@ -33,11 +40,6 @@ En `main.js` se deben realizar las siguientes tareas según se necesite.
   ```js
 app.component('loader-component', LoaderComponent);
 ```
-
-## Variables de .env  
-
-### VUE_APP_PUBLIC_URL_API
-Base de la API
 
 ## Releases
 
