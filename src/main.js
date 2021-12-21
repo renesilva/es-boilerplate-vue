@@ -3,6 +3,7 @@ import App from './App.vue';
 import HomePage from './pages/Home.vue';
 import AcercaDePage from './pages/AcercaDe.vue';
 import LoginPage from './pages/auth/Login.vue';
+import RegisterPage from './pages/auth/Register.vue';
 import LoaderComponent from './components/Loader.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import store from './store/index';
@@ -19,6 +20,7 @@ const routes = [
   { path: '/acerca-de', component: AcercaDePage },
   // Gestión de usuarios
   { path: '/login', component: LoginPage },
+  { path: '/register', component: RegisterPage },
 ];
 // ***********************************
 

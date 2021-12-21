@@ -31,15 +31,22 @@
 </template>
 <script>
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import * as yup from 'yup';
+import { toFormValidator } from '@vee-validate/zod';
+import { z } from 'zod';
 
 export default {
   name: 'LoginPage',
   data() {
-    const schema = yup.object().shape({
-      email: yup.string().required('El correo electrónico es un campo requerido.'),
-      password: yup.string().required('La contraseña es un campo requerido.'),
-    });
+    const schema = toFormValidator(
+      z.object({
+        email: z
+          .string({ required_error: 'El correo electrónico es un campo requerido.' })
+          .min(1, 'El correo electrónico es un campo requerido.'),
+        password: z
+          .string({ required_error: 'La contraseña es un campo requerido.' })
+          .min(1, 'La contraseña es un campo requerido.'),
+      }),
+    );
     return {
       loading: false,
       message: '',
