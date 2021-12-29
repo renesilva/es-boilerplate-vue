@@ -69,8 +69,12 @@ export default {
         },
       ];
       if (this.loggedIn) {
+        let loggedInOptions = {
+          route: '/productos',
+          text: 'Productos',
+        };
         // se pueden agregar opciones extra cuando inicie sesión
-        navOptions = [...navOptions];
+        navOptions = [...navOptions, loggedInOptions];
       }
       return navOptions;
     },

@@ -5,6 +5,9 @@ import AcercaDePage from './pages/AcercaDe.vue';
 import LoginPage from './pages/auth/Login.vue';
 import RegisterPage from './pages/auth/Register.vue';
 import LoaderComponent from './components/Loader.vue';
+import ProductosListadoPage from './pages/productos/Listado.vue';
+import ProductosAdicionarPage from './pages/productos/Adicionar.vue';
+import ProductosEditarPage from './pages/productos/Editar.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import store from './store/index';
 
@@ -21,6 +24,10 @@ const routes = [
   // Gestión de usuarios
   { path: '/login', component: LoginPage },
   { path: '/register', component: RegisterPage },
+  // Productos
+  { path: '/productos/', component: ProductosListadoPage },
+  { path: '/productos/adicionar', component: ProductosAdicionarPage },
+  { path: '/productos/editar/:id', component: ProductosEditarPage, props: true },
 ];
 // ***********************************
 
